@@ -1,0 +1,20 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./node_modules/.bin/mocha test/*_test.js test/**/*_test.js"
+  },
+  "author": "<collintmiller@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "express": "^4.15.4",
+    "mocha": "^3.5.0",
+    "pg": "^7.1.0",
+    "sequelize": "^4.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
