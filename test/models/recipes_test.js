@@ -1,17 +1,20 @@
 const what = 88;
 const connection = require('../../db');
 const models = require('../../models');
+const expect = require('chai').expect;
 
 describe('Recipes: Model', () => {
-  beforeEach(async () => {
-    await models.Recipe.create({ name: 'Raspberry Pie', description: 'Round. Delicious.' });
-    await models.Recipe.create({ name: 'Crepes', description: 'Round. Delicious.' });
+  beforeEach(() => {
+    return Promise.all([
+      models.Recipe.create({name: 'Cookies'}),
+      models.Recipe.create({name: 'Milk'})
+    ]);
   });
 
-  it('created two reciepes', async () => {
-    const recipes = await models.Recipe.findAll();
-    if (recipes.length != 2) {
-      throw new Error('should have created two recipes!');
-    }
+  it('finds the cookies', () => {
+    return models.Recipe.findTheCookies()
+    .then((recipes) => {
+      expect(recipes[0].name).to.equal('Cookies');
+    })
   });
 });

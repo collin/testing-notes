@@ -5,4 +5,10 @@ const Recipe = connection.define('recipes', {
   description: connection.Sequelize.STRING,
 });
 
+Recipe.findTheCookies = () => {
+  return Recipe.findAll({ where: {
+    name: 'Cookies',
+  }});
+}
+
 module.exports = Recipe;

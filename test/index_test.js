@@ -1,5 +1,6 @@
 const models = require('../models');
+models.Recipe;
 
-beforeEach(async () => {
-  await Promise.all(Object.values(models).map(model => model.sync({ force: true })));
+beforeEach(() => {
+  return models.Recipe.sync({ force: true });
 });
